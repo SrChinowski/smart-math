@@ -67,7 +67,8 @@ const AppLogin = () => {
     const onSubmit = () => { dispatch(appLogin(values.mail, values.password)) };
 
     //useEffects
-    useEffect(() => {isUserAuthenticated() && window.location.replace('/app')}, [])
+    // useEffect(() => {isUserAuthenticated() && window.location.replace('/app')}, [])
+    
 
     return ( 
         <ThemeProvider theme={themeOptions}>

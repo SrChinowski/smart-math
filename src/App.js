@@ -44,24 +44,6 @@ function App() {
             
           </ContentWrapper>
           <Footer />
-          {/* <Sticky top={0} innerZ={9999} activeClass="sticky-active">
-            <Navbar />
-          </Sticky>
-          <ContentWrapper>
-            <Banner />
-
-            <KeyFeatures /> Andres
-            <ChooseUs />
-
-            <Experiences />
-            <FeatureSlider />
-            <Pricing />
-            <TestimonialSection />
-            <AvailableStore />
-            <Faqs />
-            <CallToAction />
-          </ContentWrapper>
-          <Footer /> */}
         </AppWrapper> 
         {/* /* end of app creative landing */}
     </ThemeProvider>
