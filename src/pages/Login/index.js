@@ -3,21 +3,17 @@ import Heading from '../../components/common/Heading';
 import Text from '../../components/common/Text';
 import LoginWrapper, { Card, LoginLayout, Separator} from './login.style';
 import {
-    FormControlLabel,
-    Checkbox,
     Button,
     createTheme,
     IconButton,
     InputAdornment
 } from '@mui/material';
 import { ThemeProvider } from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { Link } from 'react-router-dom';
 import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
 import { useDispatch } from 'react-redux';
 import { appLogin } from '../../redux/ducks/app_d';
-import { isUserAuthenticated } from '../../utils/helpers';
 import useDuck from '../../utils/hooks/useDuck';
 
 export const themeOptions = createTheme({
@@ -43,7 +39,6 @@ const AppLogin = () => {
 
     //Data States
     const [values, setValues] = useState({
-        mail: '',
         password: '',
         showPassword: false,
     });
@@ -77,21 +72,42 @@ const AppLogin = () => {
             <ValidatorForm onSubmit={onSubmit}>
                 <LoginLayout>
                     <Card >
-                        <Heading content={'Hola'} style={{fontWeight: '700', marginBottom: '5px'}}/>
-                        <Text content={'Es bueno verte de nuevo 👋'} style={{color: 'rgba(14, 14, 23, 0.7)'}}/>
+                        <Heading content={'Iniciar Sesion'} style={{fontWeight: '700', marginBottom: '15px'}}/>
+                        <Text content={'Hola! Bienvenido de nuevo 👋'} style={{color: 'rgba(14, 14, 23, 0.7)'}}/>
                         <Separator/>
                       
                         <TextValidator
-                            label="Correo" fullWidth
+                            label="Nombre (s)" fullWidth
                             onChange={handleChange('mail')}
-                            name="mail"
-                            value={values.mail}
-                            validators={['required', 'isEmail']}
-                            errorMessages={['Campo obligatorio', 'Correo no valido']}
+                            name="name"
+                            value={values.name}
+                            validators={['required']}
+                            errorMessages={['Campo obligatorio']}  
                         />
                         <Separator/>
+
+                        <TextValidator
+                            label="Primer apellido" fullWidth
+                            onChange={handleChange('mail')}
+                            name="secondName1"
+                            value={values.secondName1}
+                            validators={['required']}
+                            errorMessages={['Campo obligatorio']}
+                        />
+                        <Separator/>
+
+                        <TextValidator
+                            label="Segundo apellido" fullWidth
+                            onChange={handleChange('mail')}
+                            name="secondName2"
+                            value={values.secondName2}
+                            validators={['required']}
+                            errorMessages={['Campo obligatorio']}
+                        />
+                        <Separator/>
+                        
                         <TextValidator 
-                            label="Contraseña" fullWidth
+                            label="Codigo de clase" fullWidth
                             onChange={handleChange('password')}
                             name="password"
                             type={values.showPassword ? 'text' : 'password'}
@@ -113,10 +129,7 @@ const AppLogin = () => {
                               }}
                         />
                         <Separator/>
-                        <div style={{display: 'flex', justifyContent: 'space-between', marginTop: '15px'}}>
-                            <FormControlLabel control={<Checkbox defaultChecked />} label="Recuérdame" />
-                            <Button variant="text">Olvidé la contraseña </Button>
-                        </div>
+                        <Separator/>
                         <Separator/>
                         <Button 
                             variant="contained" color='primary' 
@@ -126,10 +139,8 @@ const AppLogin = () => {
                                 Iniciar Sesión
                         </Button>
                         <Separator/>
-                        <div  style={{alignSelf: 'center', display: 'flex'}}>
-                            <Text content={'¿No tienes una cuenta?'} style={{color: 'rgba(14, 14, 23, 0.7)'}}/>
-                            <Link to="/register"><b style={{color: themeOptions.palette.primary.main, cursor: 'pointer', marginLeft: '5px'}}>Registrate</b></Link>
-                        </div>
+                        <Separator/>
+                        <Separator/>
                     </Card>
                 </LoginLayout>
             </ValidatorForm>

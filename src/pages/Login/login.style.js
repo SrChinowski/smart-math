@@ -15,46 +15,45 @@ const LoginWrapper = styled.section`
 
 export const LoginLayout = styled.div`
   overflow: hidden;
-  display: flex;
+  display: list-item;
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
 `
 export const Card = styled.div`
-  padding: 2rem;
+  padding: 4rem;
   background-color: white;
-  border-radius: 25px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-estart;
   align-self: auto;
-  min-height: 400px;
+  min-height: auto;
 
   @media (min-width: 0px) {
     width: 80%;
-    height: 50vh;
+    height: auto;
     align-self: center;
   }
   @media (min-width: 768px) {
     width: 60%;
-    height: 50vh;
+    height: auto;
     align-self: center;
   }
   @media (min-width: 992px) {
     max-width: 30%;
-    height: 50vh;
-    margin-left: 10%;
+    height: auto;
+    margin-left: 0;
     align-self: auto;
   }
   @media (min-width: 1220px) {
     max-width: 25%;
-    height: 50vh;
-    margin-left: 10%;
+    height: auto;
+    margin-left: 0%;
     align-self: auto;
   }
 `
 export const Separator = styled.div`
-height: 1.5rem;
+height: 2rem;
 `
 
 export default LoginWrapper;
